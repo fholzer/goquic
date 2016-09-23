@@ -85,7 +85,7 @@ rm -fr build libgoquic.a
 if [ $GOOS = "freebsd" ]; then
     GOQUIC_BUILD=$GOQUIC_BUILD gmake -j
 else
-    GOQUIC_BUILD=$GOQUIC_BUILD make -j
+    GOQUIC_BUILD=$GOQUIC_BUILD make -j `nproc`
 fi
 mv libgoquic.a $TARGET_DIR
 
