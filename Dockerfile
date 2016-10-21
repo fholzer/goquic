@@ -6,7 +6,10 @@ ADD . /go/src/github.com/devsisters/goquic
 
 WORKDIR /go/src/github.com/devsisters/goquic
 RUN ./build_libs.sh -a -r
-RUN go build $GOPATH/src/github.com/devsisters/goquic/example/reverse_proxy.go
+RUN 	go build $GOPATH/src/github.com/devsisters/goquic/example/reverse_proxy.go && \
+	go build $GOPATH/src/github.com/devsisters/goquic/example/server.go && \
+	go build $GOPATH/src/github.com/devsisters/goquic/example/client.go && \
+	go build $GOPATH/src/github.com/devsisters/goquic/example/config_generator.go
 
 EXPOSE 8080
 EXPOSE 8080/udp
